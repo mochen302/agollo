@@ -152,17 +152,17 @@ func SyncNamespaceConfig(namespace string) error {
 func syncConfigs(namespace string, isAsync bool) error {
 
 	remoteConfigs, err := notifyRemoteConfig(nil, namespace, isAsync)
-
-	if err != nil || len(remoteConfigs) == 0 {
-		appConfig := env.GetPlainAppConfig()
-		loadBackupConfig(appConfig.NamespaceName, appConfig)
-	}
+	//if err != nil {
+	//	appConfig := env.GetPlainAppConfig()
+	//	loadBackupConfig(appConfig.NamespaceName, appConfig)
+	//}
 
 	if err != nil {
 		return fmt.Errorf("notifySyncConfigServices: %s", err)
 	}
+
 	if len(remoteConfigs) == 0 {
-		return fmt.Errorf("notifySyncConfigServices: empty remote config")
+		return nil
 	}
 
 	updateAllNotifications(remoteConfigs)
@@ -235,8 +235,9 @@ func notifyRemoteConfig(newAppConfig *config.AppConfig, namespace string, isAsyn
 
 	return notifies.([]*apolloNotify), err
 }
-func touchApolloConfigCache() error {
-	return nil
+func touchApolloConfigCache() interface{} {
+	remoteConfig := make([]*apolloNotify, 0)
+	return remoteConfig
 }
 
 func updateAllNotifications(remoteConfigs []*apolloNotify) {
