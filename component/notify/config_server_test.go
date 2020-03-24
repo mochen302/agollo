@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zouyx/agollo/v3/env"
+	"github.com/mochen302/agollo/env"
 )
 
 const configResponseStr = `{

@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/mochen302/agollo/utils"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/utils"
 )
 
 var (

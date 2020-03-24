@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/mochen302/agollo/agcache"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/agcache"
 )
 
 var (

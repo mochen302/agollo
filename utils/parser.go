@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/zouyx/agollo/v3/agcache"
+	"github.com/mochen302/agollo/agcache"
 )
 
 const (

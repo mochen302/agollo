@@ -5,10 +5,10 @@ import (
 	"os"
 	"sync"
 
+	"github.com/mochen302/agollo/env/config"
+	jsonConfig "github.com/mochen302/agollo/env/config/json"
+	"github.com/mochen302/agollo/utils"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/env/config"
-	jsonConfig "github.com/zouyx/agollo/v3/env/config/json"
-	"github.com/zouyx/agollo/v3/utils"
 
 	"testing"
 	"time"

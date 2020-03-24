@@ -5,11 +5,11 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/zouyx/agollo/v3/agcache"
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/utils"
+	"github.com/mochen302/agollo/agcache"
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/utils"
 
-	"github.com/zouyx/agollo/v3/component/log"
+	"github.com/mochen302/agollo/component/log"
 )
 
 //ConfigFileFormat 配置文件类型

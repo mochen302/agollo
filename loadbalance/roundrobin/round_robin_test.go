@@ -3,9 +3,9 @@ package roundrobin
 import (
 	"testing"
 
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/loadbalance"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/loadbalance"
 )
 
 const servicesConfigResponseStr = `[{

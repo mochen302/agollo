@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/zouyx/agollo/v3/env/config"
-	"github.com/zouyx/agollo/v3/loadbalance"
-	"github.com/zouyx/agollo/v3/utils"
+	"github.com/mochen302/agollo/env/config"
+	"github.com/mochen302/agollo/loadbalance"
+	"github.com/mochen302/agollo/utils"
 
-	"github.com/zouyx/agollo/v3/component/log"
-	"github.com/zouyx/agollo/v3/env"
+	"github.com/mochen302/agollo/component/log"
+	"github.com/mochen302/agollo/env"
 )
 
 var (

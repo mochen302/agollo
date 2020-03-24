@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/zouyx/agollo/v3/component/log"
-	"github.com/zouyx/agollo/v3/utils"
+	"github.com/mochen302/agollo/component/log"
+	"github.com/mochen302/agollo/utils"
 )
 
 //ConfigFile json文件读写

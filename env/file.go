@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/zouyx/agollo/v3/component/log"
-	jsonConfig "github.com/zouyx/agollo/v3/env/config/json"
+	"github.com/mochen302/agollo/component/log"
+	jsonConfig "github.com/mochen302/agollo/env/config/json"
 )
 
 const suffix = ".json"

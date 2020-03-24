@@ -1,13 +1,13 @@
 package serverlist
 
 import (
-	"github.com/zouyx/agollo/v3/component"
+	"github.com/mochen302/agollo/component"
 	"time"
 
-	"github.com/zouyx/agollo/v3/component/log"
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/env/config"
-	"github.com/zouyx/agollo/v3/protocol/http"
+	"github.com/mochen302/agollo/component/log"
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/env/config"
+	"github.com/mochen302/agollo/protocol/http"
 )
 
 const (

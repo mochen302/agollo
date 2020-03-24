@@ -7,14 +7,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/mochen302/agollo/agcache"
+	"github.com/mochen302/agollo/component/log"
+	"github.com/mochen302/agollo/component/notify"
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/env/config"
+	jsonFile "github.com/mochen302/agollo/env/config/json"
+	"github.com/mochen302/agollo/storage"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/agcache"
-	"github.com/zouyx/agollo/v3/component/log"
-	"github.com/zouyx/agollo/v3/component/notify"
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/env/config"
-	jsonFile "github.com/zouyx/agollo/v3/env/config/json"
-	"github.com/zouyx/agollo/v3/storage"
 )
 
 var (

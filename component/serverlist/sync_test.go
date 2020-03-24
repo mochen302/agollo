@@ -3,9 +3,9 @@ package serverlist
 import (
 	"testing"
 
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/env/config"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/env/config"
 )
 
 func TestSyncServerIPList(t *testing.T) {

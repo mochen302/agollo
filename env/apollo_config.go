@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"sync"
 
-	"github.com/zouyx/agollo/v3/utils"
+	"github.com/mochen302/agollo/utils"
 )
 
 var (

@@ -4,8 +4,8 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/mochen302/agollo/env/config"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/env/config"
 )
 
 type TestLoadBalance struct {

@@ -7,10 +7,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/mochen302/agollo/component/notify"
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/storage"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/component/notify"
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/storage"
 )
 
 const testDefaultNamespace = "application"

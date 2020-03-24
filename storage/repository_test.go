@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/zouyx/agollo/v3/env"
+	"github.com/mochen302/agollo/env"
 
 	. "github.com/tevid/gohamcrest"
 )

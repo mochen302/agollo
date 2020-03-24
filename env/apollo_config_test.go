@@ -3,8 +3,8 @@ package env
 import (
 	"testing"
 
+	"github.com/mochen302/agollo/utils"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v3/utils"
 )
 
 func TestSetCurrentApolloConfig(t *testing.T) {

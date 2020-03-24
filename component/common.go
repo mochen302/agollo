@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net/url"
 
-	"github.com/zouyx/agollo/v3/env/config"
+	"github.com/mochen302/agollo/env/config"
 
-	"github.com/zouyx/agollo/v3/env"
-	"github.com/zouyx/agollo/v3/utils"
+	"github.com/mochen302/agollo/env"
+	"github.com/mochen302/agollo/utils"
 )
 
 //AbsComponent 定时组件

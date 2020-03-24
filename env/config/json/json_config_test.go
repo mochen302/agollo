@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"os"
 
-	"github.com/zouyx/agollo/v3/env/config"
-	"github.com/zouyx/agollo/v3/utils"
+	"github.com/mochen302/agollo/env/config"
+	"github.com/mochen302/agollo/utils"
 
 	"testing"
 
