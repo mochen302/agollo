@@ -18,7 +18,7 @@ import (
 )
 
 const (
-	longPollInterval = 2 * time.Second //2s
+	longPollInterval = 30 * time.Second //2s
 
 	//notify timeout
 	nofityConnectTimeout = 10 * time.Minute //10m
@@ -113,17 +113,23 @@ func (n *notificationsMap) getNotifies(namespace string) string {
 
 //ConfigComponent 配置组件
 type ConfigComponent struct {
+	LongPollInterval time.Duration
 }
 
 //Start 启动配置组件定时器
 func (c *ConfigComponent) Start() {
-	t2 := time.NewTimer(longPollInterval)
+	longPollIntervalNow := longPollInterval
+	if c.LongPollInterval != 0 {
+		longPollIntervalNow = c.LongPollInterval
+	}
+
+	t2 := time.NewTimer(longPollIntervalNow)
 	//long poll for sync
 	for {
 		select {
 		case <-t2.C:
 			AsyncConfigs()
-			t2.Reset(longPollInterval)
+			t2.Reset(longPollIntervalNow)
 		}
 	}
 }
