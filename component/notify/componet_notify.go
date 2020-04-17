@@ -150,7 +150,12 @@ func SyncConfigsWithTimeout(syncTimeOut time.Duration) error {
 }
 
 //SyncNamespaceConfig 同步同步一个指定的namespace配置
-func SyncNamespaceConfig(namespace string, syncTimeOut time.Duration) error {
+func SyncNamespaceConfig(namespace string) error {
+	return syncConfigs(namespace, false, syncNofityConnectTimeout)
+}
+
+//SyncNamespaceConfig 同步同步一个指定的namespace配置
+func SyncNamespaceConfigWithTimeout(namespace string, syncTimeOut time.Duration) error {
 	return syncConfigs(namespace, false, syncTimeOut)
 }
 

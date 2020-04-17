@@ -197,7 +197,7 @@ func TestAutoSyncConfigServices(t *testing.T) {
 
 func TestAutoSyncConfigServicesNoBackupFile(t *testing.T) {
 	initNotifications()
-	server := runNormalConfigResponse()
+	server := runNormalConfigRespongo
 	newAppConfig := getTestAppConfig()
 	newAppConfig.IP = server.URL
 	appConfig := env.GetPlainAppConfig()
