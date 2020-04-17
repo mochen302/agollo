@@ -136,22 +136,22 @@ func (c *ConfigComponent) Start() {
 
 //AsyncConfigs 异步同步所有配置文件中配置的namespace配置
 func AsyncConfigs() error {
-	return syncConfigs(utils.Empty, true)
+	return syncConfigs(utils.Empty, true, 0)
 }
 
 //SyncConfigs 同步同步所有配置文件中配置的namespace配置
-func SyncConfigs() error {
-	return syncConfigs(utils.Empty, false)
+func SyncConfigs(syncTimeOut time.Duration) error {
+	return syncConfigs(utils.Empty, false, syncTimeOut)
 }
 
 //SyncNamespaceConfig 同步同步一个指定的namespace配置
-func SyncNamespaceConfig(namespace string) error {
-	return syncConfigs(namespace, false)
+func SyncNamespaceConfig(namespace string, syncTimeOut time.Duration) error {
+	return syncConfigs(namespace, false, syncTimeOut)
 }
 
-func syncConfigs(namespace string, isAsync bool) error {
+func syncConfigs(namespace string, isAsync bool, syncTimeOut time.Duration) error {
 
-	remoteConfigs, err := notifyRemoteConfig(nil, namespace, isAsync)
+	remoteConfigs, err := notifyRemoteConfig(nil, namespace, isAsync, syncTimeOut)
 	//if err != nil {
 	//	appConfig := env.GetPlainAppConfig()
 	//	loadBackupConfig(appConfig.NamespaceName, appConfig)
@@ -204,7 +204,7 @@ func toApolloConfig(resBody []byte) ([]*apolloNotify, error) {
 	return remoteConfig, nil
 }
 
-func notifyRemoteConfig(newAppConfig *config.AppConfig, namespace string, isAsync bool) ([]*apolloNotify, error) {
+func notifyRemoteConfig(newAppConfig *config.AppConfig, namespace string, isAsync bool, syncTimeOut time.Duration) ([]*apolloNotify, error) {
 	appConfig := env.GetAppConfig(newAppConfig)
 	if appConfig == nil {
 		panic("can not find apollo config!please confirm!")
@@ -216,11 +216,18 @@ func notifyRemoteConfig(newAppConfig *config.AppConfig, namespace string, isAsyn
 	connectConfig := &env.ConnectConfig{
 		URI: urlSuffix,
 	}
+
 	if !isAsync {
-		connectConfig.Timeout = syncNofityConnectTimeout
+		if syncTimeOut == 0 {
+			connectConfig.Timeout = syncNofityConnectTimeout
+		} else {
+			connectConfig.Timeout = syncTimeOut
+		}
+
 	} else {
 		connectConfig.Timeout = nofityConnectTimeout
 	}
+
 	connectConfig.IsRetry = isAsync
 	notifies, err := http.RequestRecovery(appConfig, connectConfig, &http.CallBack{
 		SuccessCallBack: func(responseBody []byte) (interface{}, error) {
