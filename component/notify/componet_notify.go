@@ -140,7 +140,12 @@ func AsyncConfigs() error {
 }
 
 //SyncConfigs 同步同步所有配置文件中配置的namespace配置
-func SyncConfigs(syncTimeOut time.Duration) error {
+func SyncConfigs() error {
+	return SyncConfigsWithTimeout(syncNofityConnectTimeout)
+}
+
+//SyncConfigs 同步同步所有配置文件中配置的namespace配置
+func SyncConfigsWithTimeout(syncTimeOut time.Duration) error {
 	return syncConfigs(utils.Empty, false, syncTimeOut)
 }
 
@@ -276,7 +281,12 @@ func AutoSyncConfigServicesSuccessCallBack(responseBody []byte) (o interface{}, 
 }
 
 //AutoSyncConfigServices 自动同步配置
-func AutoSyncConfigServices(newAppConfig *config.AppConfig, syncTimeOut time.Duration) error {
+func AutoSyncConfigServices(newAppConfig *config.AppConfig) error {
+	return autoSyncNamespaceConfigServices(newAppConfig, allNotifications, syncNofityConnectTimeout)
+}
+
+//AutoSyncConfigServices 自动同步配置
+func AutoSyncConfigServicesWithTimtout(newAppConfig *config.AppConfig, syncTimeOut time.Duration) error {
 	return autoSyncNamespaceConfigServices(newAppConfig, allNotifications, syncTimeOut)
 }
 
