@@ -168,7 +168,7 @@ func syncConfigs(namespace string, isAsync bool, syncTimeOut time.Duration) erro
 	updateAllNotifications(remoteConfigs)
 
 	//sync all config
-	err = AutoSyncConfigServices(nil)
+	err = AutoSyncConfigServices(nil, syncTimeOut)
 
 	if err != nil {
 		if namespace != "" {
@@ -276,11 +276,11 @@ func AutoSyncConfigServicesSuccessCallBack(responseBody []byte) (o interface{}, 
 }
 
 //AutoSyncConfigServices 自动同步配置
-func AutoSyncConfigServices(newAppConfig *config.AppConfig) error {
-	return autoSyncNamespaceConfigServices(newAppConfig, allNotifications)
+func AutoSyncConfigServices(newAppConfig *config.AppConfig, syncTimeOut time.Duration) error {
+	return autoSyncNamespaceConfigServices(newAppConfig, allNotifications, syncTimeOut)
 }
 
-func autoSyncNamespaceConfigServices(newAppConfig *config.AppConfig, allNotifications *notificationsMap) error {
+func autoSyncNamespaceConfigServices(newAppConfig *config.AppConfig, allNotifications *notificationsMap, syncTimeOut time.Duration) error {
 	appConfig := env.GetAppConfig(newAppConfig)
 	if appConfig == nil {
 		panic("can not find apollo config!please confirm!")
@@ -292,7 +292,8 @@ func autoSyncNamespaceConfigServices(newAppConfig *config.AppConfig, allNotifica
 		urlSuffix := component.GetConfigURLSuffix(appConfig, namespace)
 
 		_, err = http.RequestRecovery(appConfig, &env.ConnectConfig{
-			URI: urlSuffix,
+			URI:     urlSuffix,
+			Timeout: syncTimeOut,
 		}, &http.CallBack{
 			SuccessCallBack:   AutoSyncConfigServicesSuccessCallBack,
 			NotModifyCallBack: touchApolloConfigCache,

@@ -67,8 +67,8 @@ func buildNotifyResult(t *testing.T) {
 	newAppConfig := getTestAppConfig()
 	newAppConfig.IP = server.URL
 
-	err := AutoSyncConfigServices(newAppConfig)
-	err = AutoSyncConfigServices(newAppConfig)
+	err := AutoSyncConfigServices(newAppConfig, syncNofityConnectTimeout)
+	err = AutoSyncConfigServices(newAppConfig, syncNofityConnectTimeout)
 
 	Assert(t, err, NilVal())
 

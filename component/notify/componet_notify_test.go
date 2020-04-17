@@ -180,8 +180,8 @@ func TestAutoSyncConfigServices(t *testing.T) {
 
 	env.GetPlainAppConfig().NextTryConnTime = 0
 
-	err := AutoSyncConfigServices(newAppConfig)
-	err = AutoSyncConfigServices(newAppConfig)
+	err := AutoSyncConfigServices(newAppConfig, syncNofityConnectTimeout)
+	err = AutoSyncConfigServices(newAppConfig, syncNofityConnectTimeout)
 
 	Assert(t, err, NilVal())
 
@@ -209,7 +209,7 @@ func TestAutoSyncConfigServicesNoBackupFile(t *testing.T) {
 
 	appConfig.NextTryConnTime = 0
 
-	err = AutoSyncConfigServices(newAppConfig)
+	err = AutoSyncConfigServices(newAppConfig, syncNofityConnectTimeout)
 
 	Assert(t, err, NilVal())
 	checkNilBackupFile(t)
@@ -232,7 +232,7 @@ func TestAutoSyncConfigServicesError(t *testing.T) {
 
 	time.Sleep(1 * time.Second)
 
-	err := AutoSyncConfigServices(nil)
+	err := AutoSyncConfigServices(nil, syncNofityConnectTimeout)
 
 	Assert(t, err, NotNilVal())
 
