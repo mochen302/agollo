@@ -178,7 +178,7 @@ func syncConfigs(namespace string, isAsync bool, syncTimeOut time.Duration) erro
 	updateAllNotifications(remoteConfigs)
 
 	//sync all config
-	err = AutoSyncConfigServicesWithTimtout(nil, syncNofityConnectTimeout)
+	err = AutoSyncConfigServicesWithTimtout(nil, syncTimeOut)
 
 	if err != nil {
 		if namespace != "" {
